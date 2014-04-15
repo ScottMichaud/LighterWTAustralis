@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+  <Description about="urn:mozilla:install-manifest">
+    <em:id>lighterwtaustralis@scott-michaud.com</em:id>
+    <em:version>0.1</em:version>
+    <em:name>Lighterweight Themes for Australis</em:name>
+    <em:description>With this extension, Lightweight Themes (formerly, "Personas") are limited to unselected tabs and the empty space around them. It also allows the user to define the amount of padding above and to the right of Firefox's TabBar, none by default, to reveal as much of the theme as they desire.</em:description>
+    <em:creator>Scott Michaud</em:creator>
+    <em:homepageURL>http://scott-michaud.com</em:homepageURL>
+    <em:type>2</em:type>
+    <em:targetApplication>
+      <Description>
+        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+        <em:minVersion>29.0</em:minVersion>
+        <em:maxVersion>31.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+    <em:unpack>true</em:unpack>
+    <em:bootstrap>true</em:bootstrap>
+    <em:optionsURL>chrome://lighterwtaustralis/content/options.xul</em:optionsURL>
+    <em:optionsType>2</em:optionsType>
+  </Description>
+</RDF>
