@@ -15,9 +15,6 @@ const Ci = Components.interfaces;
 * Adjusts the TabBar according to current user preferences.
 */
 function addOptionsStyle( window, prefs ) {
-  if (!WindowListener.isActive) {
-    return;
-  };
   let document = window.document;
   let toolbar = document.getElementById("TabsToolbar");
   
@@ -149,13 +146,16 @@ var WindowListener = {
       {
         WindowListener.setupBrowserUI(domWindow);
         let that = WindowListener.observe;
-        domWindow.addEventListener("sizemodechange", function() {
-          domWindow.setTimeout(function() {
-            that("", "nsPref:changed", "");
-          }, 50);
-        }, false);
+        let check = WindowListner.onWindowChange;
+        domWindow.addEventListener("sizemodechange", check, false);
       };
     }, false);
+  },
+  
+  onWindowChange: function() {
+    domWindow.setTimeout(function() {
+      WindowListener.observe("", "nsPref:changed", "");
+    }, 50);
   },
 
   onCloseWindow: function(xulWindow) {
@@ -177,7 +177,6 @@ var WindowListener = {
 
 function startup(data, reason) {
   WindowListener.setupObserver();
-  WindowListener.isActive = true;
   let wm = Cc["@mozilla.org/appshell/window-mediator;1"].
            getService(Ci.nsIWindowMediator);
            
@@ -186,13 +185,8 @@ function startup(data, reason) {
     let domWindow = windows.getNext().QueryInterface(Ci.nsIDOMWindow);
     WindowListener.setupBrowserUI(domWindow);
     let that = WindowListener.observe;
-    let check = WindowListener.isActive;
-    domWindow.addEventListener("sizemodechange", function() {
-      if (!check) {return;};
-      domWindow.setTimeout(function() {
-        that("", "nsPref:changed", "");
-      }, 50);
-    }, false);
+    let check = WindowListener.onWindowChange;
+    domWindow.addEventListener("sizemodechange", check , false);
   };
   wm.addListener(WindowListener);
 };
@@ -217,6 +211,8 @@ function shutdown(data, reason) {
   
   while (windows.hasMoreElements()) {
     let domWindow = windows.getNext().QueryInterface(Ci.nsIDOMWindow);
+    let check = WindowListener.onWindowChange;
+    domWindow.addEventListener("sizemodechange", check , false);
     WindowListener.tearDownBrowserUI(domWindow);
   }
   
