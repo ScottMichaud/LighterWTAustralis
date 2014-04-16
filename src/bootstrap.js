@@ -86,9 +86,6 @@ function unloadMainStyleSheet() {
 */
 var WindowListener = {
   setupBrowserUI: function(window) {
-    let document = window.document;
-    let toolbar = document.getElementById("TabsToolbar");
-    
     addOptionsStyle(window, this.prefs);
     loadMainStyleSheet();
   },
@@ -125,8 +122,6 @@ var WindowListener = {
   },
   
   tearDownBrowserUI: function(window) {
-    let document = window.document;
-    let toolbar = document.getElementById("TabsToolbar");
     let prefs = Cc["@mozilla.org/preferences-service;1"]
          .getService(Components.interfaces.nsIPrefService)
          .getBranch("extensions.lighterwtaustralis.");
@@ -145,7 +140,6 @@ var WindowListener = {
       if (domWindow.document.documentElement.getAttribute("windowtype") == "navigator:browser")
       {
         WindowListener.setupBrowserUI(domWindow);
-        let that = WindowListener.observe;
         let check = WindowListner.onWindowChange;
         domWindow.addEventListener("sizemodechange", check, false);
       };
@@ -184,7 +178,6 @@ function startup(data, reason) {
   while (windows.hasMoreElements()) {
     let domWindow = windows.getNext().QueryInterface(Ci.nsIDOMWindow);
     WindowListener.setupBrowserUI(domWindow);
-    let that = WindowListener.observe;
     let check = WindowListener.onWindowChange;
     domWindow.addEventListener("sizemodechange", check , false);
   };
@@ -203,7 +196,6 @@ function shutdown(data, reason) {
     return;
   };
   WindowListener.removeObserver();
-  WindowListener.isActive = false;
   let wm = Cc["@mozilla.org/appshell/window-mediator;1"].
            getService(Ci.nsIWindowMediator);
            
