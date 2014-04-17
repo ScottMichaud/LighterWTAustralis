@@ -4,7 +4,7 @@
 
   <Description about="urn:mozilla:install-manifest">
     <em:id>lighterwtaustralis@scott-michaud.com</em:id>
-    <em:version>0.1.1</em:version>
+    <em:version>0.1.2</em:version>
     <em:name>Lighterweight Themes for Australis</em:name>
     <em:description>With this extension, Lightweight Themes (formerly, "Personas") are limited to unselected tabs and the empty space around them. It also allows the user to define the amount of padding above and to the right of Firefox's TabBar, none by default, to reveal as much of the theme as they desire.</em:description>
     <em:creator>Scott Michaud</em:creator>

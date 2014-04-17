@@ -12,170 +12,164 @@ one at http://mozilla.org/MPL/2.0/. */
   text-shadow: none !important;
 }
 
-#back-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #back-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#downloads-indicator-icon {
+#main-window[lwtheme="true"] #downloads-indicator-icon {
   background: -moz-image-rect(url('chrome://browser/skin/Toolbar.png'), 0, 198, 18, 180) center no-repeat !important;
   color: #000 !important;
 }
 
-#forward-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #forward-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#home-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #home-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#print-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #print-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#downloads-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #downloads-button[cui-areatype="toolbar"] {
   color: #000 !important;
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#bookmarks-menu-button[cui-areatype="toolbar"] > .toolbarbutton-menubutton-dropmarker > .dropmarker-icon {
+#main-window[lwtheme="true"] #bookmarks-menu-button[cui-areatype="toolbar"] > .toolbarbutton-menubutton-dropmarker > .dropmarker-icon {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#bookmarks-menu-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #bookmarks-menu-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#new-window-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #new-window-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#fullscreen-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #fullscreen-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#sync-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #sync-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#feed-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #feed-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#tabview-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #tabview-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#webrtc-status-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #webrtc-status-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#social-share-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #social-share-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#open-file-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #open-file-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#find-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #find-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#developer-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #developer-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#preferences-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #preferences-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#privatebrowsing-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #privatebrowsing-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#save-page-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #save-page-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#switch-to-metro-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #switch-to-metro-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#add-ons-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #add-ons-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#history-panelmenu[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #history-panelmenu[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#nav-bar-overflow-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #nav-bar-overflow-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#PanelUI-menu-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #PanelUI-menu-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#characterencoding-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #characterencoding-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#email-link-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #email-link-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#sidebar-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #sidebar-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#zoom-out-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #zoom-out-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#zoom-reset-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #zoom-reset-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#zoom-in-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #zoom-in-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#cut-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #cut-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#copy-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #copy-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#paste-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] #paste-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#PanelUI-menu-button {
-  border-bottom-style: solid !important;
-  border-width: 1px !important;
-  border-color: #dbebf9 !important;
-}
-
-.tabbrowser-tab[selected="true"] {
+#main-window[lwtheme="true"] .tabbrowser-tab[selected="true"] {
   color: black !important;
   text-shadow: none !important;
 }
 
-.tab-background-middle[selected=true] {
+#main-window[lwtheme="true"] .tab-background-middle[selected=true] {
   background-image: url(chrome://browser/skin/tabbrowser/tab-active-middle.png), linear-gradient(to bottom, transparent 0px,transparent 2px, transparent 2px, hsl(216,50%,99%) 2px, hsl(216,50%,99%) 2px,hsl(207,64%,95%) 100%), none !important;
   background-repeat: repeat-x !important;
 }
 
-.tab-background-start[selected=true]::after, .tab-background-start[selected=true]::before {
+#main-window[lwtheme="true"] .tab-background-start[selected=true]::after, .tab-background-start[selected=true]::before {
   background-image: url(chrome://browser/skin/tabbrowser/tab-stroke-start.png), url(chrome://browser/skin/tabbrowser/tab-selected-start.svg) !important;
   
 }
 
-.tab-background-end[selected=true]::after, .tab-background-end[selected=true]::before {
+#main-window[lwtheme="true"] .tab-background-end[selected=true]::after, .tab-background-end[selected=true]::before {
   background-image: url(chrome://browser/skin/tabbrowser/tab-stroke-end.png), url(chrome://browser/skin/tabbrowser/tab-selected-end.svg) !important;
   
 }
