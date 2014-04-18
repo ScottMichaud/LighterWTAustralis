@@ -140,21 +140,21 @@ var WindowListener = {
       if (domWindow.document.documentElement.getAttribute("windowtype") == "navigator:browser")
       {
         WindowListener.setupBrowserUI(domWindow);
-        let check = WindowListner.onWindowChange;
-        domWindow.addEventListener("sizemodechange", check, false);
+        let check = WindowListener.onWindowChange;
+        domWindow.addEventListener("sizemodechange", function() {
+          check(domWindow);
+        }, false);
       };
     }, false);
   },
   
-  onWindowChange: function() {
+  onWindowChange: function(domWindow) {
     domWindow.setTimeout(function() {
       WindowListener.observe("", "nsPref:changed", "");
     }, 50);
   },
 
   onCloseWindow: function(xulWindow) {
-
-
   },
 
   onWindowTitleChange: function(xulWindow, newTitle) {
@@ -179,7 +179,9 @@ function startup(data, reason) {
     let domWindow = windows.getNext().QueryInterface(Ci.nsIDOMWindow);
     WindowListener.setupBrowserUI(domWindow);
     let check = WindowListener.onWindowChange;
-    domWindow.addEventListener("sizemodechange", check , false);
+    domWindow.addEventListener("sizemodechange", function() {
+      check(domWindow);
+    }, false);
   };
   wm.addListener(WindowListener);
 };
@@ -204,7 +206,9 @@ function shutdown(data, reason) {
   while (windows.hasMoreElements()) {
     let domWindow = windows.getNext().QueryInterface(Ci.nsIDOMWindow);
     let check = WindowListener.onWindowChange;
-    domWindow.addEventListener("sizemodechange", check , false);
+    domWindow.removeEventListener("sizemodechange", function() {
+      check(domWindow);
+    }, false);
     WindowListener.tearDownBrowserUI(domWindow);
   }
   
