@@ -2,10 +2,10 @@
 
 <vbox xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-  <setting title="TabBar Padding when Maximized" desc="Add some empty space for your Lightweight Theme and give yourself more room to click and drag the window. (Windows 7+: Also helps unmaximizing with Aero Snap.)" type="control"></setting>
+  <setting title="Empty Space Around Tabs (When Maximized)" desc="Add some empty space for your Lightweight Theme and gives yourself more room to click and drag the window. (Windows 7+: Also helps unmaximizing with Aero Snap.)" type="control"></setting>
   <setting pref="extensions.lighterwtaustralis.fstabbarpaddingtop" type="integer" title="Top (pixels)" size="5"/>
   <setting pref="extensions.lighterwtaustralis.fstabbarpaddingright" type="integer" title="Right (pixels)" size="5"/>
-  <setting title="TabBar Padding when in Windowed Mode" type="control"></setting>
-  <setting pref="extensions.lighterwtaustralis.wintabbarpaddingtop" type="integer" title="Top (pixels)" desc="Excluding any padding added by Firefox" size="5"/>
+  <setting title="Empty Space Around Tabs (Windowed Mode)" type="control"></setting>
+  <setting pref="extensions.lighterwtaustralis.wintabbarpaddingtop" type="integer" title="Top (pixels)" size="5"/>
   <setting pref="extensions.lighterwtaustralis.wintabbarpaddingright" type="integer" title="Right (pixels)" size="5"/>
 </vbox>

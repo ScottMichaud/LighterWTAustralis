@@ -24,6 +24,7 @@ function addOptionsStyle( window, prefs ) {
     var paddingRight = prefs.getIntPref("fstabbarpaddingright");
     toolbar.style.paddingTop = Math.min(paddingTop, 300) + "px";
     toolbar.style.paddingRight = Math.min(paddingRight, 700) + "px";
+    toolbar.style.marginTop = "";
   };
   if (document.getElementById("main-window").getAttribute("sizemode") === "normal")
   {
@@ -31,6 +32,7 @@ function addOptionsStyle( window, prefs ) {
     var paddingRight = prefs.getIntPref("wintabbarpaddingright")
     toolbar.style.paddingTop = Math.min(paddingTop, 300) + "px";
     toolbar.style.paddingRight = Math.min(paddingRight, 700) + "px";
+    toolbar.style.marginTop = "0px";
   };
 };
 
@@ -44,6 +46,7 @@ function removeOptionsStyle( window, prefs ) {
   let toolbar = document.getElementById("TabsToolbar");
   toolbar.style.paddingTop = "0px";
   toolbar.style.paddingRight = "0px";
+  toolbar.style.marginTop = "";
 };
 
 /*
@@ -234,7 +237,7 @@ function install(data, reason) {
     prefServiceBranch.setIntPref('extensions.lighterwtaustralis.fstabbarpaddingright', 0);
   };
   if(!prefServiceBranch.getPrefType('extensions.lighterwtaustralis.wintabbarpaddingtop')){
-    prefServiceBranch.setIntPref('extensions.lighterwtaustralis.wintabbarpaddingtop', 0);
+    prefServiceBranch.setIntPref('extensions.lighterwtaustralis.wintabbarpaddingtop', 15);
   };
   if(!prefServiceBranch.getPrefType('extensions.lighterwtaustralis.wintabbarpaddingright')){
     prefServiceBranch.setIntPref('extensions.lighterwtaustralis.wintabbarpaddingright', 0);
