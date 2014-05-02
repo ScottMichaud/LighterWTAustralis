@@ -12,145 +12,145 @@ one at http://mozilla.org/MPL/2.0/. */
   text-shadow: none !important;
 }
 
-#main-window[lwtheme="true"] #back-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #back-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #downloads-indicator-icon {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #downloads-indicator-icon {
   background: -moz-image-rect(url('chrome://browser/skin/Toolbar.png'), 0, 198, 18, 180) center no-repeat !important;
   color: #000 !important;
 }
 
-#main-window[lwtheme="true"] #forward-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #forward-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #home-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #home-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #print-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #print-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #downloads-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #downloads-button[cui-areatype="toolbar"] {
   color: #000 !important;
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #bookmarks-menu-button[cui-areatype="toolbar"] > .toolbarbutton-menubutton-dropmarker > .dropmarker-icon {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #bookmarks-menu-button[cui-areatype="toolbar"] > .toolbarbutton-menubutton-dropmarker > .dropmarker-icon {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #bookmarks-menu-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #bookmarks-menu-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #new-window-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #new-window-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #fullscreen-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #fullscreen-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #sync-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #sync-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #feed-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #feed-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #tabview-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #tabview-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #webrtc-status-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #webrtc-status-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #social-share-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #social-share-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #open-file-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #open-file-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #find-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #find-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #developer-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #developer-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #preferences-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #preferences-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #privatebrowsing-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #privatebrowsing-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #save-page-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #save-page-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #switch-to-metro-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #switch-to-metro-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #add-ons-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #add-ons-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #history-panelmenu[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #history-panelmenu[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #nav-bar-overflow-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #nav-bar-overflow-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #PanelUI-menu-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #PanelUI-menu-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #characterencoding-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #characterencoding-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #email-link-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #email-link-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #sidebar-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #sidebar-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #zoom-out-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #zoom-out-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #zoom-reset-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #zoom-reset-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #zoom-in-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #zoom-in-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #cut-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #cut-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #copy-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #copy-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] #paste-button[cui-areatype="toolbar"] {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #paste-button[cui-areatype="toolbar"] {
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
