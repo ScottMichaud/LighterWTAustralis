@@ -16,9 +16,18 @@ one at http://mozilla.org/MPL/2.0/. */
   list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
 }
 
-#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #downloads-indicator-icon {
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) stack:not([notification]) > #downloads-indicator-icon {
   background: -moz-image-rect(url('chrome://browser/skin/Toolbar.png'), 0, 198, 18, 180) center no-repeat !important;
   color: #000 !important;
+}
+
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #downloads-indicator-counter {
+  color: hsl(0,0%,30%) !important;
+  text-shadow: 0 1px 0 hsla(0,0%,100%,.5) !important;
+}
+
+#main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #downloads-button[attention] #downloads-indicator-icon {
+  background: url("chrome://browser/skin/downloads/download-glow.png") !important;
 }
 
 #main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #forward-button[cui-areatype="toolbar"] {
