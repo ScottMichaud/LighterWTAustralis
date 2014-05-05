@@ -24,7 +24,7 @@ function addOptionsStyle( window, prefs ) {
     var paddingRight = prefs.getIntPref("fstabbarpaddingright");
     toolbar.style.paddingTop = Math.min(paddingTop, 300) + "px";
     toolbar.style.paddingRight = Math.min(paddingRight, 700) + "px";
-    toolbar.style.marginTop = "";
+    toolbar.style.marginTop = "-1px";
   };
   if (document.getElementById("main-window").getAttribute("sizemode") === "normal")
   {
@@ -32,7 +32,7 @@ function addOptionsStyle( window, prefs ) {
     var paddingRight = prefs.getIntPref("wintabbarpaddingright")
     toolbar.style.paddingTop = Math.min(paddingTop, 300) + "px";
     toolbar.style.paddingRight = Math.min(paddingRight, 700) + "px";
-    toolbar.style.marginTop = "0px";
+    toolbar.style.marginTop = "-1px";
   };
 };
 
