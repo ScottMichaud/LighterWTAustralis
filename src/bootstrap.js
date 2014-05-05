@@ -154,7 +154,7 @@ var WindowListener = {
   onWindowChange: function(domWindow) {
     domWindow.setTimeout(function() {
       WindowListener.observe("", "nsPref:changed", "");
-    }, 50);
+    }, 1000);
   },
 
   onCloseWindow: function(xulWindow) {
