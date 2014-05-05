@@ -3,11 +3,11 @@ v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain
 one at http://mozilla.org/MPL/2.0/. */
 
 #main-window[lwtheme="true"] #nav-bar-customization-target, #main-window[lwtheme="true"] #PanelUI-button {
-  background: linear-gradient(to bottom, #eaf1f9 0%,#dbebf9 100%) !important;
+  background: linear-gradient(to bottom, rgb(243,242,242) 0%, rgb(243,242,242) 100%) !important;
 }
 
 #main-window[lwtheme="true"] #PersonalToolbar {
-  background: #dbebf9 !important;
+  background: rgb(243,242,242) !important;
   color: black !important;
   text-shadow: none !important;
 }
@@ -175,7 +175,7 @@ one at http://mozilla.org/MPL/2.0/. */
 }
 
 #main-window[lwtheme="true"] .tab-background-middle[selected=true] {
-  background-image: url(chrome://browser/skin/tabbrowser/tab-active-middle.png), linear-gradient(to bottom, transparent 0px,transparent 2px, transparent 2px, hsl(216,50%,99%) 2px, hsl(216,50%,99%) 2px,hsl(207,64%,95%) 100%), none !important;
+  background-image: url(chrome://browser/skin/tabbrowser/tab-active-middle.png), linear-gradient(to bottom, transparent 0px,transparent 2px, transparent 2px, rgb(247,247,246) 2px, rgb(247,247,246) 2px,rgb(243,242,242) 100%), none !important;
   background-repeat: repeat-x !important;
 }
 
