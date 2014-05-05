@@ -2,7 +2,7 @@
 v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain
 one at http://mozilla.org/MPL/2.0/. */
 
-#nav-bar-customization-target, #PanelUI-button {
+#main-window[lwtheme="true"] #nav-bar-customization-target, #main-window[lwtheme="true"] #PanelUI-button {
   background: linear-gradient(to bottom, #eaf1f9 0%,#dbebf9 100%) !important;
 }
 

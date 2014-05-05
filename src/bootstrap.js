@@ -52,14 +52,31 @@ function removeOptionsStyle( window, prefs ) {
 /*
 * loadMainStyleSheet()
 *
-* Registers style.css with browser.xul.
+* Registers styleX.css with browser.xul.
 */
 function loadMainStyleSheet() {
+  let osString = Components.classes["@mozilla.org/xre/app-info;1"]
+               .getService(Components.interfaces.nsIXULRuntime).OS;
+  let urlString = "";
+  switch (osString) {
+    case "WINNT":
+    urlString = 'chrome://lighterwtaustralis/content/styleWin.css';
+    break;
+    case "Linux":
+    urlString = 'chrome://lighterwtaustralis/content/styleLinux.css';
+    break;
+    case "Darwin":
+    urlString = 'chrome://lighterwtaustralis/content/styleMac.css';
+    break;
+    default: //Probably something 'NIX or BSD, why not?
+    urlString = 'chrome://lighterwtaustralis/content/styleLinux.css';
+  }
+  
   let sss = Cc["@mozilla.org/content/style-sheet-service;1"]
             .getService(Components.interfaces.nsIStyleSheetService);
   let ios = Cc["@mozilla.org/network/io-service;1"]
             .getService(Components.interfaces.nsIIOService);
-  let srcCSS = ios.newURI('chrome://lighterwtaustralis/content/style.css', null, null);
+  let srcCSS = ios.newURI(urlString, null, null);
   if(!sss.sheetRegistered(srcCSS, sss.USER_SHEET)) {
       sss.loadAndRegisterSheet(srcCSS, sss.USER_SHEET);
   };
@@ -68,14 +85,31 @@ function loadMainStyleSheet() {
 /*
 * unloadMainStyleSheet()
 *
-* Unregisters style.css with browser.xul.
+* Unregisters styleX.css with browser.xul.
 */
 function unloadMainStyleSheet() {
+  let osString = Components.classes["@mozilla.org/xre/app-info;1"]
+               .getService(Components.interfaces.nsIXULRuntime).OS;
+  let urlString = "";
+  switch (osString) {
+    case "WINNT":
+    urlString = 'chrome://lighterwtaustralis/content/styleWin.css';
+    break;
+    case "Linux":
+    urlString = 'chrome://lighterwtaustralis/content/styleLinux.css';
+    break;
+    case "Darwin":
+    urlString = 'chrome://lighterwtaustralis/content/styleMac.css';
+    break;
+    default: //That's what up there did.
+    urlString = 'chrome://lighterwtaustralis/content/styleLinux.css';
+  }
+  
   let sss = Cc["@mozilla.org/content/style-sheet-service;1"]
             .getService(Components.interfaces.nsIStyleSheetService);
   let ios = Cc["@mozilla.org/network/io-service;1"]
             .getService(Components.interfaces.nsIIOService);
-  let srcCSS = ios.newURI('chrome://lighterwtaustralis/content/style.css', null, null);
+  let srcCSS = ios.newURI(urlString, null, null);
   if(sss.sheetRegistered(srcCSS, sss.USER_SHEET)) {
     sss.unregisterSheet(srcCSS, sss.USER_SHEET);
   };
