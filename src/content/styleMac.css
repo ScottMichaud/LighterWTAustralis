@@ -2,12 +2,28 @@
 v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain
 one at http://mozilla.org/MPL/2.0/. */
 
-#main-window[lwtheme="true"] #nav-bar-customization-target, #main-window[lwtheme="true"] #PanelUI-button {
-  background: linear-gradient(to bottom, #eaf1f9 0%,#dbebf9 100%) !important;
+#nav-bar {
+  background: linear-gradient(to bottom, rgb(236,236,236) 0px, rgb(210,210,210) 100%) !important;
+  border-top-style: solid !important;
+  border-top-width: 1px !important;
+  border-top-color: rgba(33,33,33,0.5) !important;
+  margin-top: -2px !important;
+}
+
+#main-window[lwtheme="true"] #TabsToolbar {
+  background: none !important;
+}
+
+#main-window #TabsToolbar {
+  background: linear-gradient(to bottom, rgb(224,224,224) 0px, rgb(186,186,186) 36px, rgb(186,186,186) 100%);
+}
+
+#nav-bar-customization-target, #main-window[lwtheme="true"] #PanelUI-button {
+  background: linear-gradient(to bottom, #000 0px, #000 1px, #ececec 1px%, #d2d2d2 100%) !important;
 }
 
 #PersonalToolbar {
-  background: #dbebf9 !important;
+  background: #d2d2d2 !important;
   color: black !important;
   text-shadow: none !important;
 }
@@ -166,19 +182,20 @@ one at http://mozilla.org/MPL/2.0/. */
 #main-window[lwtheme="true"] .tabbrowser-tab[selected="true"] {
   color: black !important;
   text-shadow: none !important;
+  margin-bottom: 1px;
 }
 
 #main-window[lwtheme="true"] .tab-background-middle[selected=true] {
-  background-image: url(chrome://browser/skin/tabbrowser/tab-active-middle.png), linear-gradient(to bottom, transparent 0px,transparent 2px, transparent 2px, hsl(216,50%,99%) 2px, hsl(216,50%,99%) 2px,hsl(207,64%,95%) 100%), none !important;
+  background-image: url(chrome://browser/skin/tabbrowser/tab-active-middle.png), linear-gradient(to bottom, transparent 0px,transparent 2px, transparent 2px, #fafafa 2px, #fafafa 2px,#ececec 100%), none !important;
   background-repeat: repeat-x !important;
 }
 
 #main-window[lwtheme="true"] .tab-background-start[selected=true]::after, .tab-background-start[selected=true]::before {
-  background-image: url(chrome://browser/skin/tabbrowser/tab-stroke-start.png), url(chrome://browser/skin/tabbrowser/tab-selected-start.svg) !important;
+  background-image: /*url(chrome://browser/skin/tabbrowser/tab-stroke-start.png),*/ url(chrome://browser/skin/tabbrowser/tab-selected-start.svg) !important;
   
 }
 
 #main-window[lwtheme="true"] .tab-background-end[selected=true]::after, .tab-background-end[selected=true]::before {
-  background-image: url(chrome://browser/skin/tabbrowser/tab-stroke-end.png), url(chrome://browser/skin/tabbrowser/tab-selected-end.svg) !important;
+  background-image: /*url(chrome://browser/skin/tabbrowser/tab-stroke-end.png),*/ url(chrome://browser/skin/tabbrowser/tab-selected-end.svg) !important;
   
 }
