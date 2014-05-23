@@ -17,6 +17,10 @@ one at http://mozilla.org/MPL/2.0/. */
   #main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #back-button[cui-areatype="toolbar"] {
     list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
   }
+  
+  #main-window #TabsToolbar {
+    margin-top: -1px !important;
+  }
 
   #main-window[lwtheme="true"] toolbar:not(#TabsToolbar) stack:not([notification]) > #downloads-indicator-icon {
     background: -moz-image-rect(url('chrome://browser/skin/Toolbar.png'), 0, 198, 18, 180) center no-repeat !important;

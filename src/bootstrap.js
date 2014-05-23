@@ -4,50 +4,12 @@ one at http://mozilla.org/MPL/2.0/. */
 
 /*
 * Thanks to Dave Townsend of Mozilla for his Restartless Extension framework.
+* Removed in Version 1.1, but was still helpful before that time.
 */
+
 
 const Cc = Components.classes;
 const Ci = Components.interfaces;
-
-/*
-* addOptionsStyle()
-*
-* Adjusts the TabBar according to current user preferences.
-*/
-function addOptionsStyle( window, prefs ) {
-  let document = window.document;
-  let toolbar = document.getElementById("TabsToolbar");
-  
-  if (document.getElementById("main-window").getAttribute("sizemode") === "maximized")
-  {
-    var paddingTop = prefs.getIntPref("fstabbarpaddingtop");
-    var paddingRight = prefs.getIntPref("fstabbarpaddingright");
-    toolbar.style.paddingTop = Math.min(paddingTop, 300) + "px";
-    toolbar.style.paddingRight = Math.min(paddingRight, 700) + "px";
-    toolbar.style.marginTop = "-1px";
-  };
-  if (document.getElementById("main-window").getAttribute("sizemode") === "normal")
-  {
-    var paddingTop = prefs.getIntPref("wintabbarpaddingtop");
-    var paddingRight = prefs.getIntPref("wintabbarpaddingright")
-    toolbar.style.paddingTop = Math.min(paddingTop, 300) + "px";
-    toolbar.style.paddingRight = Math.min(paddingRight, 700) + "px";
-    toolbar.style.marginTop = "-1px";
-  };
-};
-
-/*
-* removeOptionsStyle()
-*
-* Resets TabBar adjustments back to normal (zero padding).
-*/
-function removeOptionsStyle( window, prefs ) {
-  let document = window.document;
-  let toolbar = document.getElementById("TabsToolbar");
-  toolbar.style.paddingTop = "0px";
-  toolbar.style.paddingRight = "0px";
-  toolbar.style.marginTop = "";
-};
 
 /*
 * loadMainStyleSheet()
@@ -55,8 +17,8 @@ function removeOptionsStyle( window, prefs ) {
 * Registers styleX.css with browser.xul.
 */
 function loadMainStyleSheet() {
-  let osString = Components.classes["@mozilla.org/xre/app-info;1"]
-               .getService(Components.interfaces.nsIXULRuntime).OS;
+  let osString = Cc["@mozilla.org/xre/app-info;1"]
+               .getService(Ci.nsIXULRuntime).OS;
   let urlString = "";
   switch (osString) {
     case "WINNT":
@@ -73,9 +35,9 @@ function loadMainStyleSheet() {
   }
   
   let sss = Cc["@mozilla.org/content/style-sheet-service;1"]
-            .getService(Components.interfaces.nsIStyleSheetService);
+            .getService(Ci.nsIStyleSheetService);
   let ios = Cc["@mozilla.org/network/io-service;1"]
-            .getService(Components.interfaces.nsIIOService);
+            .getService(Ci.nsIIOService);
   let srcCSS = ios.newURI(urlString, null, null);
   if(!sss.sheetRegistered(srcCSS, sss.USER_SHEET)) {
       sss.loadAndRegisterSheet(srcCSS, sss.USER_SHEET);
@@ -88,8 +50,8 @@ function loadMainStyleSheet() {
 * Unregisters styleX.css with browser.xul.
 */
 function unloadMainStyleSheet() {
-  let osString = Components.classes["@mozilla.org/xre/app-info;1"]
-               .getService(Components.interfaces.nsIXULRuntime).OS;
+  let osString = Cc["@mozilla.org/xre/app-info;1"]
+               .getService(Ci.nsIXULRuntime).OS;
   let urlString = "";
   switch (osString) {
     case "WINNT":
@@ -106,30 +68,67 @@ function unloadMainStyleSheet() {
   }
   
   let sss = Cc["@mozilla.org/content/style-sheet-service;1"]
-            .getService(Components.interfaces.nsIStyleSheetService);
+            .getService(Ci.nsIStyleSheetService);
   let ios = Cc["@mozilla.org/network/io-service;1"]
-            .getService(Components.interfaces.nsIIOService);
+            .getService(Ci.nsIIOService);
   let srcCSS = ios.newURI(urlString, null, null);
   if(sss.sheetRegistered(srcCSS, sss.USER_SHEET)) {
     sss.unregisterSheet(srcCSS, sss.USER_SHEET);
   };
 };
 
-/*
-* WindowListener
-*
-* Singleton class which enumerates open browser windows and targets them,
-* individually or as a group.
-*/
-var WindowListener = {
-  setupBrowserUI: function(window) {
-    addOptionsStyle(window, this.prefs);
-    loadMainStyleSheet();
+var StyleManager = {
+  cssHeader: "@-moz-document url(chrome://browser/content/browser.xul){",
+  cssFooter: "}",
+  
+  getCss: function() {
+    return this.cssHeader + this.cssMiddle + this.cssFooter;
   },
-
+  
+  setCss: function() {
+    var mPaddingTop = this.prefs.getIntPref("fstabbarpaddingtop");
+    var mPaddingRight = this.prefs.getIntPref("fstabbarpaddingright");
+    var wPaddingTop = this.prefs.getIntPref("wintabbarpaddingtop");
+    var wPaddingRight = this.prefs.getIntPref("wintabbarpaddingright");
+    
+    this.cssMiddle = "#main-window[sizemode=maximized] #TabsToolbar{padding-top:" +
+    Math.min(mPaddingTop, 300) + "px !important;padding-right:" + Math.min(mPaddingRight, 700) + 
+    "px !important}#main-window[sizemode=normal] #TabsToolbar{padding-top:" +
+    Math.min(wPaddingTop, 300) + "px !important ;padding-right:" + Math.min(wPaddingRight, 700) +
+    "px !important}";
+  },
+  
+  registerStyleSheet: function() {
+    this.setCss(); //Update CSS string.
+    
+    let urlString = "data:text/css," + escape(this.getCss());
+    
+    let sss = Cc["@mozilla.org/content/style-sheet-service;1"]
+              .getService(Ci.nsIStyleSheetService);
+    let ios = Cc["@mozilla.org/network/io-service;1"]
+              .getService(Ci.nsIIOService);
+    let srcCSS = ios.newURI(urlString, null, null);
+    if(!sss.sheetRegistered(srcCSS, sss.USER_SHEET)) {
+        sss.loadAndRegisterSheet(srcCSS, sss.USER_SHEET);
+    };
+  },
+  
+  unregisterStyleSheet: function() {
+    let urlString = "data:text/css," + escape(this.getCss());
+   
+    let sss = Cc["@mozilla.org/content/style-sheet-service;1"]
+              .getService(Ci.nsIStyleSheetService);
+    let ios = Cc["@mozilla.org/network/io-service;1"]
+              .getService(Ci.nsIIOService);
+    let srcCSS = ios.newURI(urlString, null, null);
+    if(sss.sheetRegistered(srcCSS, sss.USER_SHEET)) {
+      sss.unregisterSheet(srcCSS, sss.USER_SHEET);
+    };
+  },
+  
   setupObserver: function() {
     let prefs = Cc["@mozilla.org/preferences-service;1"]
-         .getService(Components.interfaces.nsIPrefService)
+         .getService(Ci.nsIPrefService)
          .getBranch("extensions.lighterwtaustralis.");         
     prefs.addObserver("", this, false);
     this.prefs = prefs;
@@ -144,59 +143,10 @@ var WindowListener = {
       return;
     };
     
-    let prefs = Cc["@mozilla.org/preferences-service;1"]
-         .getService(Components.interfaces.nsIPrefService)
-         .getBranch("extensions.lighterwtaustralis."); 
-    
-    let wm = Cc["@mozilla.org/appshell/window-mediator;1"].
-           getService(Ci.nsIWindowMediator);
-           
-    let windows = wm.getEnumerator("navigator:browser");
-    while (windows.hasMoreElements()) {
-      let domWindow = windows.getNext().QueryInterface(Ci.nsIDOMWindow);
-      addOptionsStyle( domWindow, prefs );
-    };
-  },
-  
-  tearDownBrowserUI: function(window) {
-    let prefs = Cc["@mozilla.org/preferences-service;1"]
-         .getService(Components.interfaces.nsIPrefService)
-         .getBranch("extensions.lighterwtaustralis.");
-    prefs.removeObserver("", this);
-    removeOptionsStyle(window, prefs);
-    unloadMainStyleSheet();
-  },
-
-  onOpenWindow: function(xulWindow) {
-    let domWindow = xulWindow.QueryInterface(Ci.nsIInterfaceRequestor)
-                             .getInterface(Ci.nsIDOMWindow);
-
-    domWindow.addEventListener("load", function listener() {
-      domWindow.removeEventListener("load", listener, false);
-      
-      if (domWindow.document.documentElement.getAttribute("windowtype") == "navigator:browser")
-      {
-        WindowListener.setupBrowserUI(domWindow);
-        let check = WindowListener.onWindowChange;
-        domWindow.addEventListener("sizemodechange", function() {
-          check(domWindow);
-        }, false);
-      };
-    }, false);
-  },
-  
-  onWindowChange: function(domWindow) {
-    domWindow.setTimeout(function() {
-      WindowListener.observe("", "nsPref:changed", "");
-    }, 1000);
-  },
-
-  onCloseWindow: function(xulWindow) {
-  },
-
-  onWindowTitleChange: function(xulWindow, newTitle) {
+    this.unregisterStyleSheet();
+    this.registerStyleSheet();
   }
-}
+};
 
 /*
 * startup()
@@ -205,22 +155,11 @@ var WindowListener = {
 *
 * Called whenever extension is installed, enabled, or the browser launches.
 */
-
-function startup(data, reason) {
-  WindowListener.setupObserver();
-  let wm = Cc["@mozilla.org/appshell/window-mediator;1"].
-           getService(Ci.nsIWindowMediator);
-           
-  let windows = wm.getEnumerator("navigator:browser");
-  while (windows.hasMoreElements()) {
-    let domWindow = windows.getNext().QueryInterface(Ci.nsIDOMWindow);
-    WindowListener.setupBrowserUI(domWindow);
-    let check = WindowListener.onWindowChange;
-    domWindow.addEventListener("sizemodechange", function() {
-      check(domWindow);
-    }, false);
-  };
-  wm.addListener(WindowListener);
+function startup( data, reason ) {
+  loadMainStyleSheet();
+  StyleManager.setupObserver();
+  StyleManager.setCss();
+  StyleManager.registerStyleSheet();
 };
 
 /*
@@ -230,26 +169,14 @@ function startup(data, reason) {
 *
 * Called whenever extension is disabled, removed, or the browser shuts down.
 */
-function shutdown(data, reason) {
+function shutdown( data, reason ) {
   if (reason == APP_SHUTDOWN) {
-    return;
+    return; //Save a few cycles on shutdown
   };
-  WindowListener.removeObserver();
-  let wm = Cc["@mozilla.org/appshell/window-mediator;1"].
-           getService(Ci.nsIWindowMediator);
-           
-  let windows = wm.getEnumerator("navigator:browser");
   
-  while (windows.hasMoreElements()) {
-    let domWindow = windows.getNext().QueryInterface(Ci.nsIDOMWindow);
-    let check = WindowListener.onWindowChange;
-    domWindow.removeEventListener("sizemodechange", function() {
-      check(domWindow);
-    }, false);
-    WindowListener.tearDownBrowserUI(domWindow);
-  }
-  
-  wm.removeListener(WindowListener);
+  unloadMainStyleSheet();
+  StyleManager.removeObserver();
+  StyleManager.unregisterStyleSheet();
 };
 
 /*
@@ -257,11 +184,11 @@ function shutdown(data, reason) {
 *
 * Required by Mozilla for Bootstrapped Extensions.
 *
-* Called when the application is added to Firefox. In this case, it checks to
-* see if about:config entries are present and, if not, sets them.
+* Called when the application is added to Firefox. 
+* In this case, it checks to see if about:config entries are present 
+* and, if not, sets them.
 */
-function install(data, reason) {
-
+function install( data, reason ) {
   var prefServiceBranch = Components.classes["@mozilla.org/preferences-service;1"]
                                .getService(Components.interfaces.nsIPrefService).getBranch("");
   if(!prefServiceBranch.getPrefType('extensions.lighterwtaustralis.fstabbarpaddingtop')){
@@ -284,7 +211,8 @@ function install(data, reason) {
 * Required by Mozilla for Bootstrapped Extensions.
 *
 * Called when the application is removed from Firefox.
+* In this case, nothing needs to be done.
 */
-function uninstall(data, reason) {
+function uninstall( data, reason ) {
 
 };

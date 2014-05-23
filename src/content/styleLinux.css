@@ -19,6 +19,10 @@ one at http://mozilla.org/MPL/2.0/. */
     padding-top: 0px !important;
     margin-bottom: -2px;
   }
+  
+  #main-window #TabsToolbar {
+    margin-top: -1px !important;
+  }
 
   #main-window[lwtheme="true"] toolbar:not(#TabsToolbar) #back-button[cui-areatype="toolbar"] {
     list-style-image: url(chrome://browser/skin/Toolbar.png) !important;
