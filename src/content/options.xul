@@ -5,7 +5,8 @@
   <setting title="Add Empty Space Around Tabs" type="control"></setting>
   <setting pref="extensions.lighterwtaustralis.fstabbarpaddingtop" type="integer" title="Top (pixels)" size="5"/>
   <setting pref="extensions.lighterwtaustralis.fstabbarpaddingright" type="integer" title="Right (pixels)" size="5"/>
-  <setting title="Add Empty Space Around Tabs (Windowed Mode)" desc="Linux and Windows only. Mac users should leave the same as the above settings to prevent a bug with fullscreen mode." type="control"></setting>
+  <setting title="Add Empty Space Around Tabs (Windowed Mode)" desc="Windowed Mode Padding for Linux and Windows only. Disabled on Mac OSX because of a bug.
+  Disabled in Mac OSX because of a bug. (Maximized padding is enabled.)" type="control"></setting>
   <setting pref="extensions.lighterwtaustralis.wintabbarpaddingtop" type="integer" title="Top (pixels)" size="5"/>
   <setting pref="extensions.lighterwtaustralis.wintabbarpaddingright" type="integer" title="Right (pixels)" size="5"/>
 </vbox>

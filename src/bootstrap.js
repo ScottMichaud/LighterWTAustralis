@@ -91,6 +91,13 @@ var StyleManager = {
     var wPaddingTop = this.prefs.getIntPref("wintabbarpaddingtop");
     var wPaddingRight = this.prefs.getIntPref("wintabbarpaddingright");
     
+    let osString = Cc["@mozilla.org/xre/app-info;1"]
+               .getService(Ci.nsIXULRuntime).OS;
+               
+    if (osString === "Darwin") {
+      wPaddingTop = 0; //Disable top padding for "windowed mode" in Mac OSX. Too buggy.
+    };
+    
     this.cssMiddle = "#main-window[sizemode=maximized] #TabsToolbar{padding-top:" +
     Math.min(mPaddingTop, 300) + "px !important;padding-right:" + Math.min(mPaddingRight, 700) + 
     "px !important}#main-window[sizemode=normal] #TabsToolbar{padding-top:" +
