@@ -22,17 +22,28 @@ function loadMainStyleSheet() {
   let urlString = "";
   switch (osString) {
     case "WINNT":
-    urlString = 'chrome://lighterwtaustralis/content/styleWin.css';
+    urlString = 'chrome://lighterwtaustralis/content/styleWin';
     break;
     case "Linux":
-    urlString = 'chrome://lighterwtaustralis/content/styleLinux.css';
+    urlString = 'chrome://lighterwtaustralis/content/styleLinux';
     break;
     case "Darwin":
-    urlString = 'chrome://lighterwtaustralis/content/styleMac.css';
+    urlString = 'chrome://lighterwtaustralis/content/styleMac';
     break;
     default: //Probably something 'NIX or BSD, why not?
-    urlString = 'chrome://lighterwtaustralis/content/styleLinux.css';
+    urlString = 'chrome://lighterwtaustralis/content/styleLinux';
   }
+  
+  let prefs = Cc["@mozilla.org/preferences-service;1"]
+         .getService(Ci.nsIPrefService)
+         .getBranch("extensions.lighterwtaustralis.");
+         
+  if (!prefs.getBoolPref("enabletheme"))
+  {
+    urlString = urlString + "None";
+  };
+  
+  urlString = urlString + ".css";
   
   let sss = Cc["@mozilla.org/content/style-sheet-service;1"]
             .getService(Ci.nsIStyleSheetService);
@@ -55,25 +66,43 @@ function unloadMainStyleSheet() {
   let urlString = "";
   switch (osString) {
     case "WINNT":
-    urlString = 'chrome://lighterwtaustralis/content/styleWin.css';
+    urlString = 'chrome://lighterwtaustralis/content/styleWin';
     break;
     case "Linux":
-    urlString = 'chrome://lighterwtaustralis/content/styleLinux.css';
+    urlString = 'chrome://lighterwtaustralis/content/styleLinux';
     break;
     case "Darwin":
-    urlString = 'chrome://lighterwtaustralis/content/styleMac.css';
+    urlString = 'chrome://lighterwtaustralis/content/styleMac';
     break;
     default: //That's what up there did.
-    urlString = 'chrome://lighterwtaustralis/content/styleLinux.css';
+    urlString = 'chrome://lighterwtaustralis/content/styleLinux';
   }
+  
+  let prefs = Cc["@mozilla.org/preferences-service;1"]
+         .getService(Ci.nsIPrefService)
+         .getBranch("extensions.lighterwtaustralis.");
+  
+  urlString2 = urlString;
+  
+  if (prefs.getBoolPref("enabletheme"))
+  {
+    urlString = urlString + "None";
+  };
+  
+  urlString = urlString + ".css";
+  urlString2 = urlString2 + ".css";
   
   let sss = Cc["@mozilla.org/content/style-sheet-service;1"]
             .getService(Ci.nsIStyleSheetService);
   let ios = Cc["@mozilla.org/network/io-service;1"]
             .getService(Ci.nsIIOService);
   let srcCSS = ios.newURI(urlString, null, null);
+  let srcCSS2 = ios.newURI(urlString2, null, null);
   if(sss.sheetRegistered(srcCSS, sss.USER_SHEET)) {
     sss.unregisterSheet(srcCSS, sss.USER_SHEET);
+  };
+  if(sss.sheetRegistered(srcCSS2, sss.USER_SHEET)) {
+    sss.unregisterSheet(srcCSS2, sss.USER_SHEET);
   };
 };
 
@@ -152,6 +181,8 @@ var StyleManager = {
     
     this.unregisterStyleSheet();
     this.registerStyleSheet();
+    unloadMainStyleSheet();
+    loadMainStyleSheet();
   }
 };
 
@@ -209,6 +240,9 @@ function install( data, reason ) {
   };
   if(!prefServiceBranch.getPrefType('extensions.lighterwtaustralis.wintabbarpaddingright')){
     prefServiceBranch.setIntPref('extensions.lighterwtaustralis.wintabbarpaddingright', 0);
+  };
+  if(!prefServiceBranch.getPrefType('extensions.lighterwtaustralis.enabletheme')){
+    prefServiceBranch.setBoolPref('extensions.lighterwtaustralis.enabletheme', true);
   };
 };
 

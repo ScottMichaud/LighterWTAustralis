@@ -2,11 +2,12 @@
 
 <vbox xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
+  <setting title="Theme Modifications" type="control"></setting>
+  <setting pref="extensions.lighterwtaustralis.enabletheme" type="bool" title="Enable Theme Modifications" desc="Reduce the coverage of Lightweight Themes."/>
   <setting title="Add Empty Space Around Tabs" type="control"></setting>
   <setting pref="extensions.lighterwtaustralis.fstabbarpaddingtop" type="integer" title="Top (pixels)" size="5"/>
   <setting pref="extensions.lighterwtaustralis.fstabbarpaddingright" type="integer" title="Right (pixels)" size="5"/>
-  <setting title="Add Empty Space Around Tabs (Windowed Mode)" desc="Windowed Mode Padding for Linux and Windows only. Disabled on Mac OSX because of a bug.
-  Disabled in Mac OSX because of a bug. (Maximized padding is enabled.)" type="control"></setting>
+  <setting title="Add Empty Space Around Tabs (Windowed Mode)" desc="Windowed Mode Padding for Linux and Windows only. Disabled on Mac OSX because of a bug." type="control"></setting>
   <setting pref="extensions.lighterwtaustralis.wintabbarpaddingtop" type="integer" title="Top (pixels)" size="5"/>
   <setting pref="extensions.lighterwtaustralis.wintabbarpaddingright" type="integer" title="Right (pixels)" size="5"/>
 </vbox>
